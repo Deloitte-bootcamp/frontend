@@ -1,0 +1,27 @@
+<form (ngSubmit)="submitForm()">
+  <label for="name">Name:</label>
+  <input id="name" [(ngModel)]="name" name="name" required />
+
+  <label for="email">Email:</label>
+  <input id="email" [(ngModel)]="email" name="email" type="email" required />
+
+  <label for="password">Password:</label>
+  <input id="password" [(ngModel)]="password" name="password" type="password" required />
+
+  <label>Role:</label>
+  <div>
+    <label>
+      <input type="radio" [(ngModel)]="role" name="role" value="ROLE_CLIENTE" />
+      Cliente
+    </label>
+  </div>
+  <div>
+    <label>
+      <input type="radio" [(ngModel)]="role" name="role" value="ROLE_PROFISSIONAL" />
+      Profissional
+    </label>
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
+
