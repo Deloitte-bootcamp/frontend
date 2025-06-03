@@ -12,10 +12,10 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent {
-  name: string = '';
+  nome: string = '';
   email: string = '';
   password: string = '';
-  role: Role = Role.CLIENTE; 
+  role_name: Role = Role.CLIENTE;
 
   protected readonly Role = Role;
 
@@ -23,10 +23,10 @@ export class FormComponent {
 
   submitForm() {
     const user = {
-      name: this.name,
+      nome: this.nome,
       email: this.email,
       password: this.password,
-      role: this.role
+      role_name: this.role_name
     };
 
     this.apiService.registerUser(user).subscribe({
