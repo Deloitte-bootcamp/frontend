@@ -1,1 +1,11 @@
-<p>profile works!</p>
+<div *ngIf="currentUser">
+  <h2>Perfil do Usuário</h2>
+  <div>
+    <p><strong>Nome:</strong> {{nome}}</p>
+    <p><strong>Email:</strong> {{email}}</p>
+    <p><strong>Tipo:</strong> {{role_name}}</p>
+  </div>
+</div>
+<div *ngIf="!currentUser">
+  <p>Carregando dados do usuário...</p>
+</div>
