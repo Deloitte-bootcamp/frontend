@@ -1,28 +1,23 @@
-import { HttpInterceptor } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { HttpEvent, HttpHandlerFn, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { Observable } from 'rxjs/internal/Observable';
 
-@Injectable()
-export class HttpInterceptorService implements HttpInterceptor {
+export function httpInterceptor(
+  req: HttpRequest<unknown>,
+  next: HttpHandlerFn
+): Observable<HttpEvent<unknown>> {
+  console.log('Chegou aqui no começo');
+  const token = sessionStorage.getItem('token');
 
-    constructor() { }
+  if (!token) {
+    return next(req);
+  }
 
-    intercept(req: any, next: any) {
+  const reqComAuth = req.clone({
+    setHeaders: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
-      console.log("Chegou aqui no começo")
-        const token = sessionStorage.getItem('token');
-
-        if (!token) {
-            return next.handle(req);
-        }
-
-        const reqComAuth = req.clone({
-            setHeaders: {
-                Authorization: `Bearer ${token}`
-            }
-        });
-
-      console.log("Chegou aqui no final")
-      return next.handle(reqComAuth);
-    }
-
+  console.log('Chegou aqui no final');
+  return next(reqComAuth);
 }
