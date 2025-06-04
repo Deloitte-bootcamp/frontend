@@ -1,14 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router'; // Importar o Router
 import { ApiServiceService } from '../../service/api-service/api-service.service';
-
-export interface User {
-  id: number;
-  nome: string;
-  email: string;
-  role_name: string;
-}
 
 @Component({
   selector: 'app-login',
@@ -21,7 +15,10 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private apiService: ApiServiceService) {}
+  constructor(
+    private apiService: ApiServiceService,
+    private router: Router // Injetar o Router
+  ) {}
 
   login() {
     const credentials = {
@@ -42,6 +39,7 @@ export class LoginComponent {
         const token = response.token;
         sessionStorage.setItem('user', JSON.stringify(userData));
         sessionStorage.setItem('token', token);
+        this.router.navigate(['/user']);
       },
       error: (error) => console.error('Login failed', error),
     });

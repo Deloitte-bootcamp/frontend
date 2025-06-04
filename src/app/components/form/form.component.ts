@@ -34,5 +34,14 @@ export class FormComponent {
         console.log('Usuário registrado com sucesso', response),
       error: (error) => console.error('Erro ao registrar usuário', error),
     });
+
+    this.limparFormulario();
+  }
+
+  private limparFormulario() {
+    this.nome = '';
+    this.email = '';
+    this.password = '';
+    this.role_name = Role.CLIENTE;
   }
 }
