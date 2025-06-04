@@ -34,19 +34,31 @@ section {
 
     .itens {
       display: flex;
-      flex-direction: row;
+      flex-direction: column; // Mudei para column para o formulário de login ficar vertical
       gap: 2em;
 
-      a {
-        text-decoration: none;
-        color: black;
-        font-size: 2em;
-        border-bottom: 2px solid rgba(0, 0, 0, 0);
-      }
-
-      a:hover {
-        border-bottom: 2px solid rgba(0, 0, 0, 0.788);
+      app-login {
+        width: 100%; // Para garantir que o componente de login ocupe todo o espaço
       }
     }
+  }
+}
+
+a {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #444;
   }
 }
