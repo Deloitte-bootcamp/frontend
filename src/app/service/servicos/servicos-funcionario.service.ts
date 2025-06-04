@@ -3,18 +3,19 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface ServicoDTO {
-  // Defina os campos conforme o seu backend
   id?: number;
   nome: string;
   descricao: string;
-  // ... outros campos necessários
+  preco: number;
+  duracao: number;
+  profissionalId?: number;
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class ServicosFuncionarioService {
-  private apiUrl = 'http://localhost:8080'; // ajuste se necessário
+  private apiUrl = 'http://localhost:8080/servicos';
 
   constructor(private http: HttpClient) {}
 
@@ -24,4 +25,6 @@ export class ServicosFuncionarioService {
       dto
     );
   }
+
+
 }
