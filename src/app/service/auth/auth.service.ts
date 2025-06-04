@@ -26,19 +26,19 @@ export class AuthService {
 
   setUserData(loginResponse: LoginResponse): void {
     console.log('Login response:', loginResponse); // Para debug
-    
+
     const userData: User = {
       id: loginResponse.user.id,
       nome: loginResponse.user.nome,
       email: loginResponse.user.email,
-      role_name: loginResponse.user.role_name as Role, 
-      password: '' 
+      role_name: loginResponse.user.role_name as Role,
+      password: ''
     };
-    
+
     console.log('User data mapped:', userData);
-    
+
     sessionStorage.setItem('token', loginResponse.token);
-    
+
     sessionStorage.setItem('user', JSON.stringify(userData));
     this.currentUserSubject.next(userData);
   }

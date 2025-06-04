@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Role } from '../../service/User';
-import { ApiServiceService } from '../../service/api-service.service';
+import { ApiServiceService } from '../../service/api-service/api-service.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   imports: [FormsModule, CommonModule],
   standalone: true,
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  styleUrls: ['./form.component.scss'],
 })
 export class FormComponent {
   nome: string = '';
@@ -26,12 +26,13 @@ export class FormComponent {
       nome: this.nome,
       email: this.email,
       password: this.password,
-      role_name: this.role_name
+      role_name: this.role_name,
     };
 
     this.apiService.registerUser(user).subscribe({
-      next: (response) => console.log('Usuário registrado com sucesso', response),
-      error: (error) => console.error('Erro ao registrar usuário', error)
+      next: (response) =>
+        console.log('Usuário registrado com sucesso', response),
+      error: (error) => console.error('Erro ao registrar usuário', error),
     });
   }
 }
