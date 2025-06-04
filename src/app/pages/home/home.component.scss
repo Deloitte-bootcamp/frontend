@@ -1,7 +1,6 @@
 section {
   width: 100%;
   height: 100vh;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,7 +11,6 @@ section {
     width: 50vw;
     height: 100%;
     background-size: cover;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,6 +21,14 @@ section {
       opacity: 80%;
       text-shadow: 5px 5px 5px white;
     }
+
+    @media (max-width: 768px) {
+      width: 100%;
+      height: 30vh;
+      h1 {
+        font-size: 4em;
+      }
+    }
   }
 
   .header {
@@ -32,21 +38,42 @@ section {
     width: 50vw;
     height: 100vh;
 
+    @media (max-width: 768px) {
+      width: 100%;
+      height: 70vh;
+    }
+
     .itens {
       display: flex;
       flex-direction: row;
       gap: 2em;
+
+      @media (max-width: 480px) {
+        flex-direction: column;
+        text-align: center;
+        padding: 1em;
+      }
 
       a {
         text-decoration: none;
         color: black;
         font-size: 2em;
         border-bottom: 2px solid rgba(0, 0, 0, 0);
+
+        @media (max-width: 768px) {
+          font-size: 1.5em;
+        }
       }
 
       a:hover {
         border-bottom: 2px solid rgba(0, 0, 0, 0.788);
       }
     }
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    flex-direction: column;
   }
 }
