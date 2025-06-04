@@ -8,7 +8,7 @@ import { User } from '../../service/User';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './profile.component.html',
-  styleUrl: './profile.component.scss'
+  styleUrl: './profile.component.scss',
 })
 export class ProfileComponent implements OnInit {
   currentUser: User | null = null;
@@ -17,14 +17,20 @@ export class ProfileComponent implements OnInit {
   role_name: string = '';
 
   constructor(private authService: AuthService) {}
-
   ngOnInit() {
     const storedUser = this.authService.currentUserValue;
     if (storedUser) {
       this.setUserData(storedUser);
+    } else {
+      const sessionUser = sessionStorage.getItem('user');
+      if (sessionUser) {
+        const userData = JSON.parse(sessionUser);
+        this.authService['currentUserSubject'].next(userData);
+        this.setUserData(userData);
+      }
     }
 
-    this.authService.currentUser.subscribe(user => {
+    this.authService.currentUser.subscribe((user) => {
       console.log('User data received:', user);
       if (user) {
         this.setUserData(user);
@@ -40,7 +46,7 @@ export class ProfileComponent implements OnInit {
     console.log('User data set:', {
       nome: this.nome,
       email: this.email,
-      role_name: this.role_name
+      role_name: this.role_name,
     });
   }
 
