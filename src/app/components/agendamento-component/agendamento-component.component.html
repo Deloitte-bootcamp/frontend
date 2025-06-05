@@ -1,0 +1,56 @@
+<form (ngSubmit)="criarAgendamento()">
+  <div>
+    <label for="profissionalEmail">Email do Profissional:</label>
+    <input
+      id="profissionalEmail"
+      [(ngModel)]="profissionalEmail"
+      name="profissionalEmail"
+      type="email"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="servicoId">ID do Serviço:</label>
+    <input
+      id="servicoId"
+      [(ngModel)]="servicoId"
+      name="servicoId"
+      type="number"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="data">Data:</label>
+    <input id="data" [(ngModel)]="data" name="data" type="date" required />
+  </div>
+
+  <div>
+    <label for="horaInicio">Hora de Início:</label>
+    <input
+      id="horaInicio"
+      [(ngModel)]="horaInicio"
+      name="horaInicio"
+      type="time"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="horaFim">Hora de Término:</label>
+    <input
+      id="horaFim"
+      [(ngModel)]="horaFim"
+      name="horaFim"
+      type="time"
+      required
+    />
+  </div>
+
+  <button type="submit">Agendar</button>
+
+  <div *ngIf="mensagem" [class]="mensagemTipo">
+    {{ mensagem }}
+  </div>
+</form>
