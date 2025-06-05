@@ -29,7 +29,6 @@ export class AgendamentoService {
     return this.http.post<AgendamentoDTO>(this.apiUrl, dto, { headers });
   }
 
-  // Método para listar agendamentos do cliente logado
   listarMeusAgendamentos(): Observable<AgendamentoDTO[]> {
     const token = this.authService.getToken();
 
@@ -46,7 +45,6 @@ export class AgendamentoService {
     });
   }
 
-  // Método para listar agendamentos do profissional
   listarAgendamentosProfissional(): Observable<AgendamentoDTO[]> {
     const token = this.authService.getToken();
 
