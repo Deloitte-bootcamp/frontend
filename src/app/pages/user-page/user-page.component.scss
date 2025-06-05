@@ -110,3 +110,27 @@ section {
     }
   }
 }
+
+a {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  &:hover {
+    background-color: #444;
+  }
+}

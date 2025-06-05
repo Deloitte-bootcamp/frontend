@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { ProfileComponent } from '../../components/profile/profile.component';
 import { AuthService } from '../../service/auth/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-user-page',
-  imports: [ProfileComponent],
+  imports: [ProfileComponent, RouterLink],
   standalone: true,
   templateUrl: './user-page.component.html',
   styleUrl: './user-page.component.scss',
