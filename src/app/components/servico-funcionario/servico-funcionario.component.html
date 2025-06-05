@@ -1,0 +1,27 @@
+<form (ngSubmit)="cadastrarServico()">
+  <div>
+    <label for="nome">Nome do Serviço:</label>
+    <input id="nome" [(ngModel)]="nomeServico" name="nome" required />
+  </div>
+
+  <div>
+    <label for="descricao">Descrição:</label>
+    <textarea id="descricao" [(ngModel)]="descricaoServico" name="descricao" required></textarea>
+  </div>
+
+  <div>
+    <label for="preco">Preço (R$):</label>
+    <input id="preco" [(ngModel)]="precoServico" name="preco" type="number" required />
+  </div>
+
+  <div>
+    <label for="duracao">Duração (minutos):</label>
+    <input id="duracao" [(ngModel)]="duracaoServico" name="duracao" type="number" required />
+  </div>
+
+  <button type="submit">Cadastrar Serviço</button>
+
+  <div *ngIf="mensagem" [ngStyle]="{'color': mensagem.includes('sucesso') ? 'green' : 'red'}">
+    {{ mensagem }}
+  </div>
+</form>

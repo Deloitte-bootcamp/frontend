@@ -4,6 +4,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [RouterOutlet, RouterModule],
   providers: [HttpClient],
   templateUrl: './app.component.html',

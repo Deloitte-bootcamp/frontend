@@ -1,0 +1,21 @@
+<section>
+  <div class="escopo">
+    <h1>Perfil</h1>
+  </div>
+
+  <div class="header">
+    <div class="itens">
+      <app-profile></app-profile>
+
+      <ng-container *ngIf="isCliente()">
+        <a routerLink="/agendamento">Fazer Agendamento</a>
+      </ng-container>
+
+      <ng-container *ngIf="isProfissional()">
+        <a routerLink="/servico">Gerenciar Serviços</a>
+      </ng-container>
+
+      <button (click)="logout()">Logout</button>
+    </div>
+  </div>
+</section>

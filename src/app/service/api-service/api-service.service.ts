@@ -10,7 +10,7 @@ export class ApiServiceService {
   constructor(private http: HttpClient) { }
 
   registerUser(user: any) {
-    return this.http.post(`${this.apiUrl}/user/register`, user);
+    return this.http.post(`${this.apiUrl}/auth/register`, user);
   }
 
   loginUser(user: any) {

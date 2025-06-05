@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Role } from '../../service/User';
-import { ApiServiceService } from '../../service/api-service.service';
+import { ApiServiceService } from '../../service/api-service/api-service.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -9,13 +9,13 @@ import { CommonModule } from '@angular/common';
   imports: [FormsModule, CommonModule],
   standalone: true,
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  styleUrls: ['./form.component.scss'],
 })
 export class FormComponent {
-  name: string = '';
+  nome: string = '';
   email: string = '';
   password: string = '';
-  role: Role = Role.CLIENTE; 
+  role_name: Role = Role.CLIENTE;
 
   protected readonly Role = Role;
 
@@ -23,15 +23,25 @@ export class FormComponent {
 
   submitForm() {
     const user = {
-      name: this.name,
+      nome: this.nome,
       email: this.email,
       password: this.password,
-      role: this.role
+      role_name: this.role_name,
     };
 
     this.apiService.registerUser(user).subscribe({
-      next: (response) => console.log('Usuário registrado com sucesso', response),
-      error: (error) => console.error('Erro ao registrar usuário', error)
+      next: (response) =>
+        console.log('Usuário registrado com sucesso', response),
+      error: (error) => console.error('Erro ao registrar usuário', error),
     });
+
+    this.limparFormulario();
+  }
+
+  private limparFormulario() {
+    this.nome = '';
+    this.email = '';
+    this.password = '';
+    this.role_name = Role.CLIENTE;
   }
 }

@@ -20,14 +20,15 @@ section {
       font-size: 8em;
       opacity: 80%;
       text-shadow: 5px 5px 5px white;
+
+      @media (max-width: 768px) {
+        font-size: 4em;
+      }
     }
 
     @media (max-width: 768px) {
       width: 100%;
       height: 30vh;
-      h1 {
-        font-size: 4em;
-      }
     }
   }
 
@@ -45,35 +46,46 @@ section {
 
     .itens {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       gap: 2em;
+      width: 90%;
+      max-width: 400px;
 
       @media (max-width: 480px) {
-        flex-direction: column;
-        text-align: center;
         padding: 1em;
       }
 
-      a {
-        text-decoration: none;
-        color: black;
-        font-size: 2em;
-        border-bottom: 2px solid rgba(0, 0, 0, 0);
-
-        @media (max-width: 768px) {
-          font-size: 1.5em;
-        }
-      }
-
-      a:hover {
-        border-bottom: 2px solid rgba(0, 0, 0, 0.788);
+      app-agendamento-component {
+        width: 100%;
       }
     }
   }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
 }
 
-@media (max-width: 480px) {
-  section {
-    flex-direction: column;
+a {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  &:hover {
+    background-color: #444;
   }
 }

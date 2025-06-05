@@ -4,16 +4,16 @@ export enum Role {
 }
 export class User {
     id: number;
-    name: string;
+    nome: string;
     email: string;
     password: string;
-    role: Role;
+    role_name: Role;
 
-    constructor(id: number, name: string, email: string, password: string, role: Role) {
+    constructor(id: number, nome: string, email: string, password: string, role: Role) {
         this.id = id;
-        this.name = name;
+        this.nome = nome;
         this.email = email;
         this.password = password;
-        this.role = Role.CLIENTE;
+        this.role_name = Role.CLIENTE;
     }
-}   
+}
